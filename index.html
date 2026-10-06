@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Hooligans | Cardápio Digital & Delivery</title>
+    <meta name="description" content="Cardápio digital moderno da Hamburgueria Hooligans. Faça seu pedido online rápido pelo WhatsApp." />
+    <meta name="theme-color" content="#dc2626" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- HEADER / HERO -->
+      <header class="hero-header">
+        <div class="hero-cover">
+          <div class="hero-overlay"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&auto=format&fit=crop&q=80" 
+            alt="Hooligans Banner" 
+            class="cover-image" 
+          />
+        </div>
+
+        <div class="container hero-content">
+          <div class="store-badge-row">
+            <div class="store-logo">
+              <span class="logo-emoji">🍔</span>
+            </div>
+            <div class="status-pill open" id="storeStatus">
+              <span class="status-dot"></span>
+              <span class="status-text">Aberto agora</span>
+            </div>
+          </div>
+
+          <div class="store-info">
+            <h1 class="store-name" id="storeName">Hooligans</h1>
+            <p class="store-slogan" id="storeSlogan">Hamburgueria Artesanal &amp; Delivery</p>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="metrics-bar">
+            <div class="metric-item">
+              <svg class="metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <div>
+                <span class="metric-label">Tempo Médio</span>
+                <strong class="metric-val" id="metricTime">30-60 min</strong>
+              </div>
+            </div>
+
+            <div class="metric-separator"></div>
+
+            <div class="metric-item">
+              <svg class="metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+              <div>
+                <span class="metric-label">Entrega</span>
+                <strong class="metric-val" id="metricFee">R$ 6,00</strong>
+              </div>
+            </div>
+
+            <div class="metric-separator"></div>
+
+            <div class="metric-item">
+              <svg class="metric-icon whatsapp-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+              <div>
+                <span class="metric-label">WhatsApp</span>
+                <strong class="metric-val" id="metricPhone">(31) 99839-1633</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- STICKY TOP CONTROLS (SEARCH & CATEGORIES) -->
+      <section class="sticky-controls" id="stickyControls">
+        <div class="container">
+          <!-- Search Bar -->
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="searchInput" 
+              class="search-input" 
+              placeholder="Buscar no cardápio... (ex: Hoog lee, smash, bacon)" 
+              autocomplete="off"
+            />
+            <button id="clearSearchBtn" class="clear-search-btn hidden" aria-label="Limpar busca">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Horizontal Category Tabs -->
+          <nav class="categories-nav" id="categoriesNav" aria-label="Categorias do cardápio">
+            <!-- Dynamic Category Pills injected by JS -->
+          </nav>
+        </div>
+      </section>
+
+      <!-- MAIN CONTENT -->
+      <main class="container main-content">
+        <!-- Search Status / Filter Info -->
+        <div id="searchInfo" class="search-info hidden">
+          <span>Resultados para "<strong id="searchQueryText"></strong>"</span>
+          <button id="resetSearchLink" class="reset-link">Ver todo o cardápio</button>
+        </div>
+
+        <!-- Products Feed -->
+        <div id="productsFeed" class="products-feed">
+          <!-- Dynamic Products grouped by category or search results -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptySearchState" class="empty-state hidden">
+          <div class="empty-icon">🔍</div>
+          <h3>Nenhum produto encontrado</h3>
+          <p>Tente buscar por outro termo ou navegue pelas categorias acima.</p>
+          <button class="btn btn-outline" id="emptyStateResetBtn">Ver todos os produtos</button>
+        </div>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="app-footer">
+        <div class="container footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo">🍔 Hooligans</div>
+            <p>O melhor hambúrguer artesanal direto na sua casa!</p>
+          </div>
+          <div class="footer-info">
+            <p><strong>Horário:</strong> Terça a Domingo: 18h às 23h30</p>
+            <p><strong>WhatsApp:</strong> +55 31 99839-1633</p>
+            <p><strong>Belo Horizonte &amp; Região</strong></p>
+          </div>
+          <div class="footer-copy">
+            <p>&copy; 2026 Hooligans Hamburgueria. Todos os direitos reservados.</p>
+          </div>
+        </div>
+      </footer>
+
+      <!-- FLOATING CART BUTTON (BOTTOM BAR) -->
+      <aside class="floating-cart-bar hidden" id="floatingCartBar">
+        <div class="container">
+          <button class="cart-trigger-btn" id="openCartBtn">
+            <div class="cart-btn-left">
+              <div class="cart-badge-count" id="cartCountBadge">0</div>
+              <div class="cart-btn-texts">
+                <span class="cart-btn-label">Ver Pedido</span>
+                <span class="cart-btn-items-summary" id="cartItemsSummary">0 itens</span>
+              </div>
+            </div>
+            <div class="cart-btn-right">
+              <span class="cart-btn-total" id="cartBarTotal">R$ 0,00</span>
+              <svg class="cart-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </aside>
+
+      <!-- PRODUCT CUSTOMIZATION MODAL -->
+      <div class="modal-overlay hidden" id="productModalOverlay">
+        <div class="modal-card product-modal" id="productModal">
+          <!-- Close button -->
+          <button class="modal-close-btn" id="closeProductModalBtn" aria-label="Fechar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Modal Scrollable Content -->
+          <div class="modal-scrollable">
+            <div class="modal-product-image-wrap">
+              <img id="modalProductImage" src="" alt="Produto" class="modal-product-img" />
+              <div id="modalProductBadge" class="product-badge modal-badge hidden"></div>
+            </div>
+
+            <div class="modal-body">
+              <div class="modal-header-info">
+                <span class="product-category-tag" id="modalProductCategory">Categoria</span>
+                <h2 class="modal-product-title" id="modalProductTitle">Nome do Produto</h2>
+                <p class="modal-product-desc" id="modalProductDesc">Descrição detalhada</p>
+                <div class="modal-product-base-price" id="modalProductPrice">R$ 0,00</div>
+              </div>
+
+              <!-- Removals Section -->
+              <div class="customization-section hidden" id="removalsSection">
+                <div class="section-title-wrap">
+                  <h3 class="section-title">Deseja remover algum ingrediente?</h3>
+                  <span class="section-subtitle">Opcional</span>
+                </div>
+                <div class="removals-list" id="removalsList">
+                  <!-- Injected checkboxes -->
+                </div>
+              </div>
+
+              <!-- Additions Section -->
+              <div class="customization-section hidden" id="additionsSection">
+                <div class="section-title-wrap">
+                  <h3 class="section-title">Turbine seu pedido (Adicionais)</h3>
+                  <span class="section-subtitle">Escolha à vontade</span>
+                </div>
+                <div class="additions-list" id="additionsList">
+                  <!-- Injected additions with checkboxes -->
+                </div>
+              </div>
+
+              <!-- Observations Section -->
+              <div class="customization-section">
+                <div class="section-title-wrap">
+                  <h3 class="section-title">Alguma observação?</h3>
+                  <span class="section-subtitle">Opcional</span>
+                </div>
+                <div class="obs-input-wrap">
+                  <textarea 
+                    id="productObsInput" 
+                    class="obs-textarea" 
+                    placeholder="Ex: Ponto da carne bem passado, tirar maionese, cortar ao meio..."
+                    maxlength="140"
+                    rows="2"
+                  ></textarea>
+                  <span class="char-count" id="obsCharCount">0/140</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Footer Action -->
+          <div class="modal-footer">
+            <div class="qty-selector">
+              <button class="qty-btn" id="modalQtyMinusBtn" aria-label="Diminuir">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+              <span class="qty-number" id="modalQtyVal">1</span>
+              <button class="qty-btn" id="modalQtyPlusBtn" aria-label="Aumentar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </button>
+            </div>
+
+            <button class="btn btn-primary add-to-cart-btn" id="modalAddToCartBtn">
+              <span>Adicionar</span>
+              <span class="btn-price-divider">•</span>
+              <span id="modalAddTotalPrice">R$ 0,00</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CART / CHECKOUT DRAWER MODAL -->
+      <div class="modal-overlay hidden" id="cartModalOverlay">
+        <div class="drawer-card cart-drawer" id="cartDrawer">
+          <!-- Drawer Header -->
+          <div class="drawer-header">
+            <div class="drawer-header-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="header-cart-icon">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-3z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <h2>Seu Pedido</h2>
+            </div>
+            <button class="modal-close-btn" id="closeCartBtn" aria-label="Fechar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Drawer Body -->
+          <div class="drawer-body">
+            <!-- Items Container -->
+            <div id="cartItemsList" class="cart-items-list">
+              <!-- Injected cart items -->
+            </div>
+
+            <!-- Empty Cart State -->
+            <div id="emptyCartView" class="empty-cart-view hidden">
+              <div class="empty-cart-icon">🛒</div>
+              <h3>Sua sacola está vazia</h3>
+              <p>Adicione deliciosos hambúrgueres e porções para começar o seu pedido!</p>
+              <button class="btn btn-primary" id="startShoppingBtn">Ver Cardápio</button>
+            </div>
+
+            <!-- Checkout Form Section (visible only when cart has items) -->
+            <div id="checkoutFormSection" class="checkout-form-section">
+              <!-- Order Type Toggle: Delivery or Pickup -->
+              <div class="form-group">
+                <label class="form-label">Como deseja receber seu pedido?</label>
+                <div class="segmented-control">
+                  <button type="button" class="segment-btn active" id="btnTypeDelivery">
+                    <span class="seg-icon">🛵</span>
+                    <div class="seg-text">
+                      <strong>Entrega</strong>
+                      <span class="seg-sub" id="labelDeliveryFeeSub">+ R$ 6,00</span>
+                    </div>
+                  </button>
+                  <button type="button" class="segment-btn" id="btnTypePickup">
+                    <span class="seg-icon">🏬</span>
+                    <div class="seg-text">
+                      <strong>Retirada</strong>
+                      <span class="seg-sub">Grátis (no balcão)</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Customer Info -->
+              <div class="form-section-title">
+                <span>1. Seus Dados</span>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="custName" class="form-label">Seu Nome Completo <span class="required">*</span></label>
+                  <input type="text" id="custName" class="form-input" placeholder="Ex: Carlos Silva" />
+                </div>
+                <div class="form-group">
+                  <label for="custPhone" class="form-label">WhatsApp / Telefone <span class="required">*</span></label>
+                  <input type="tel" id="custPhone" class="form-input" placeholder="Ex: (31) 98765-4321" />
+                </div>
+              </div>
+
+              <!-- Delivery Address Fields (toggled if delivery) -->
+              <div id="deliveryAddressSection">
+                <div class="form-section-title">
+                  <span>2. Endereço de Entrega</span>
+                </div>
+
+                <div class="form-grid">
+                  <div class="form-group span-2">
+                    <label for="addrStreet" class="form-label">Rua / Avenida <span class="required">*</span></label>
+                    <input type="text" id="addrStreet" class="form-input" placeholder="Ex: Rua das Flores" />
+                  </div>
+                  <div class="form-group">
+                    <label for="addrNumber" class="form-label">Número <span class="required">*</span></label>
+                    <input type="text" id="addrNumber" class="form-input" placeholder="Ex: 120" />
+                  </div>
+                  <div class="form-group">
+                    <label for="addrNeighborhood" class="form-label">Bairro <span class="required">*</span></label>
+                    <input type="text" id="addrNeighborhood" class="form-input" placeholder="Ex: Centro" />
+                  </div>
+                  <div class="form-group">
+                    <label for="addrComplement" class="form-label">Complemento</label>
+                    <input type="text" id="addrComplement" class="form-input" placeholder="Ex: Apto 301, Bloco B" />
+                  </div>
+                  <div class="form-group">
+                    <label for="addrReference" class="form-label">Ponto de Referência</label>
+                    <input type="text" id="addrReference" class="form-input" placeholder="Ex: Próximo à praça" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Payment Method Fields -->
+              <div class="form-section-title">
+                <span id="paymentStepLabel">3. Forma de Pagamento</span>
+              </div>
+
+              <div class="payment-methods-grid">
+                <label class="payment-card">
+                  <input type="radio" name="paymentMethod" value="PIX" checked />
+                  <div class="payment-card-inner">
+                    <span class="payment-icon">⚡</span>
+                    <span class="payment-name">PIX</span>
+                    <span class="payment-badge">Mais Rápido</span>
+                  </div>
+                </label>
+
+                <label class="payment-card">
+                  <input type="radio" name="paymentMethod" value="Cartão de Crédito" />
+                  <div class="payment-card-inner">
+                    <span class="payment-icon">💳</span>
+                    <span class="payment-name">Crédito</span>
+                    <span class="payment-desc">Maquininha</span>
+                  </div>
+                </label>
+
+                <label class="payment-card">
+                  <input type="radio" name="paymentMethod" value="Cartão de Débito" />
+                  <div class="payment-card-inner">
+                    <span class="payment-icon">💳</span>
+                    <span class="payment-name">Débito</span>
+                    <span class="payment-desc">Maquininha</span>
+                  </div>
+                </label>
+
+                <label class="payment-card">
+                  <input type="radio" name="paymentMethod" value="Dinheiro" />
+                  <div class="payment-card-inner">
+                    <span class="payment-icon">💵</span>
+                    <span class="payment-name">Dinheiro</span>
+                    <span class="payment-desc">C/ troco</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Cash Change Field (visible if Dinheiro is selected) -->
+              <div id="cashChangeSection" class="form-group hidden mt-3">
+                <label for="cashChangeInput" class="form-label">Precisa de troco para quanto?</label>
+                <input type="text" id="cashChangeInput" class="form-input" placeholder="Ex: R$ 50,00 ou R$ 100,00 (deixe em branco se não precisar)" />
+              </div>
+
+              <div id="pixNotice" class="pix-notice">
+                <span class="notice-icon">ℹ️</span>
+                <span>A chave PIX e QR Code serão confirmados pelo atendente no WhatsApp após o envio do pedido.</span>
+              </div>
+
+              <!-- Financial Summary -->
+              <div class="cart-summary-card">
+                <div class="summary-line">
+                  <span>Subtotal</span>
+                  <span id="summarySubtotal">R$ 0,00</span>
+                </div>
+                <div class="summary-line" id="summaryDeliveryRow">
+                  <span>Taxa de Entrega</span>
+                  <span id="summaryDeliveryFee">R$ 6,00</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-line total-line">
+                  <strong>Total a Pagar</strong>
+                  <strong class="total-val" id="summaryGrandTotal">R$ 0,00</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Drawer Footer Action -->
+          <div class="drawer-footer" id="drawerFooterAction">
+            <button class="btn btn-whatsapp w-full" id="finishOrderWhatsAppBtn">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="btn-wa-icon">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.17 8.17 0 0 1 2.4 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.188 8.188 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.64c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+              </svg>
+              <span>Enviar Pedido pelo WhatsApp</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOAST NOTIFICATION -->
+      <div id="toastNotification" class="toast hidden">
+        <span class="toast-icon">✨</span>
+        <span class="toast-msg" id="toastMessage">Produto adicionado!</span>
+      </div>
+    </div>
+
+    <!-- Application Script -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

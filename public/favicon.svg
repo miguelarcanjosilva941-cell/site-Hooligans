@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="burgerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444" />
+      <stop offset="100%" stop-color="#B91C1C" />
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#burgerGrad)"/>
+  <!-- Top Bun -->
+  <path d="M22 42 Q50 16 78 42 Z" fill="#FBBF24" />
+  <!-- Sesame seeds -->
+  <circle cx="40" cy="30" r="2" fill="#FEF08A"/>
+  <circle cx="52" cy="27" r="2" fill="#FEF08A"/>
+  <circle cx="62" cy="33" r="2" fill="#FEF08A"/>
+  <!-- Lettuce -->
+  <path d="M20 46 Q26 42 32 46 Q38 50 44 46 Q50 42 56 46 Q62 50 68 46 Q74 42 80 46" stroke="#22C55E" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <!-- Cheese -->
+  <polygon points="22,50 78,50 74,56 50,60 26,56" fill="#F59E0B" />
+  <!-- Meat patty -->
+  <rect x="20" y="55" width="60" height="9" rx="4.5" fill="#78350F" />
+  <!-- Bottom bun -->
+  <path d="M22 66 Q22 76 50 76 Q78 76 78 66 Z" fill="#FBBF24" />
+</svg>

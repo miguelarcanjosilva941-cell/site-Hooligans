@@ -1,0 +1,318 @@
+{
+  "restaurant": {
+    "name": "Hooligans",
+    "slogan": "Hamburgueria Artesanal & Delivery",
+    "type": "HAMBURGUERIA",
+    "phone": "+55 31 998391633",
+    "whatsapp": "5531998391633",
+    "deliveryFee": 6.00,
+    "deliveryTime": "30-60 min",
+    "status": "Aberto agora",
+    "hours": "Ter a Dom: 18h às 23h30",
+    "address": "Belo Horizonte, MG"
+  },
+  "categories": [
+    {
+      "id": "todos",
+      "name": "Todos",
+      "icon": "🍔"
+    },
+    {
+      "id": "artesanais",
+      "name": "Artesanais",
+      "icon": "🥩"
+    },
+    {
+      "id": "podrao",
+      "name": "Podrão",
+      "icon": "🥓"
+    },
+    {
+      "id": "combos",
+      "name": "Combos",
+      "icon": "🍟"
+    },
+    {
+      "id": "porcoes",
+      "name": "Porções",
+      "icon": "🍗"
+    },
+    {
+      "id": "bebidas",
+      "name": "Bebidas",
+      "icon": "🥤"
+    },
+    {
+      "id": "sobremesas",
+      "name": "Sobremesas",
+      "icon": "🍦"
+    }
+  ],
+  "products": [
+    {
+      "id": "hoog-lee",
+      "name": "Hoog lee",
+      "category": "Artesanais",
+      "description": "Hambúrguer artesanal 180g, queijo cheddar, bacon crocante, alface, tomate e molho especial da casa.",
+      "price": 32.90,
+      "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=800&auto=format&fit=crop&q=80",
+      "badge": "Mais Pedido",
+      "available": true,
+      "additions": [
+        { "id": "add-bacon-lee", "name": "Bacon extra", "price": 5.00 },
+        { "id": "add-cheddar-lee", "name": "Cheddar extra", "price": 4.00 },
+        { "id": "add-burger-lee", "name": "Hambúrguer extra", "price": 9.00 },
+        { "id": "add-molho-lee", "name": "Molho especial", "price": 2.00 }
+      ],
+      "removals": [
+        "Sem cebola",
+        "Sem tomate",
+        "Sem alface",
+        "Sem molho"
+      ]
+    },
+    {
+      "id": "hoog-jab",
+      "name": "Hoog Jab",
+      "category": "Podrão",
+      "description": "Hamburguer de um soco so",
+      "price": 28.90,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80",
+      "badge": "MAIS PEDIDO",
+      "available": true,
+      "additions": [
+        { "id": "add-bacon-jab", "name": "Bacon", "price": 3.00 },
+        { "id": "add-cheddar-jab", "name": "Cheddar", "price": 3.00 }
+      ],
+      "removals": [
+        "SEM CEBOLA",
+        "SEM TOMATE",
+        "SEM MOLHO"
+      ]
+    },
+    {
+      "id": "smash-hooligan",
+      "name": "Hooligan Smash Duplo",
+      "category": "Artesanais",
+      "description": "2 ultra smashs 90g crocantes na chapa, dobro de cheddar cremoso derretido, cebola caramelizada e maionese defumada no pão brioche amanteigado.",
+      "price": 29.90,
+      "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&auto=format&fit=crop&q=80",
+      "badge": "NOVO",
+      "available": true,
+      "additions": [
+        { "id": "add-smash-bacon", "name": "Bacon crocante", "price": 4.50 },
+        { "id": "add-smash-carne", "name": "Smash extra 90g", "price": 6.50 },
+        { "id": "add-smash-cheddar", "name": "Cheddar em dobro", "price": 3.50 }
+      ],
+      "removals": [
+        "Sem cebola caramelizada",
+        "Sem maionese defumada"
+      ]
+    },
+    {
+      "id": "monster-hooligan",
+      "name": "Monster Hooligan 360g",
+      "category": "Artesanais",
+      "description": "Para quem tem fome de verdade! 2 blends nobres de 180g, queijo prato derretido, tiras de bacon crocante, picles artesanal e barbecue rústico.",
+      "price": 39.90,
+      "image": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=800&auto=format&fit=crop&q=80",
+      "badge": "MAIS PEDIDO",
+      "available": true,
+      "additions": [
+        { "id": "add-monster-bacon", "name": "Bacon em dobro", "price": 5.00 },
+        { "id": "add-monster-ovo", "name": "Ovo frito caipira", "price": 3.00 },
+        { "id": "add-monster-molho", "name": "Molho barbecue extra", "price": 2.50 }
+      ],
+      "removals": [
+        "Sem picles",
+        "Sem barbecue"
+      ]
+    },
+    {
+      "id": "podrao-supremo",
+      "name": "Podrão Supremo Hooligan",
+      "category": "Podrão",
+      "description": "O clássico das madrugadas elevado ao máximo: blend bovino suculento, queijo, presunto, ovo na chapa, bacon, milho, batata palha fininha e maionese verde da casa.",
+      "price": 31.90,
+      "image": "https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=800&auto=format&fit=crop&q=80",
+      "badge": "",
+      "available": true,
+      "additions": [
+        { "id": "add-podrao-ovo", "name": "Ovo extra", "price": 3.00 },
+        { "id": "add-podrao-catupiry", "name": "Catupiry Original", "price": 4.00 },
+        { "id": "add-podrao-bacon", "name": "Bacon extra", "price": 4.00 }
+      ],
+      "removals": [
+        "Sem milho",
+        "Sem batata palha",
+        "Sem ovo",
+        "Sem maionese verde"
+      ]
+    },
+    {
+      "id": "combo-hoog-lee",
+      "name": "Combo Hoog Lee Completo",
+      "category": "Combos",
+      "description": "1 Burger Hoog Lee (180g, cheddar, bacon, salada e molho) + 1 Porção Individual de Batata Frita Crocante + 1 Refrigerante Lata 350ml à sua escolha.",
+      "price": 46.90,
+      "image": "https://images.unsplash.com/photo-1610440042657-612c34d95e9f?w=800&auto=format&fit=crop&q=80",
+      "badge": "PROMOÇÃO",
+      "available": true,
+      "additions": [
+        { "id": "add-combo-cheddar-batata", "name": "Turbinar batata c/ Cheddar e Bacon", "price": 6.00 },
+        { "id": "add-combo-maionese", "name": "Maionese da casa extra (pote 50ml)", "price": 3.00 }
+      ],
+      "removals": [
+        "Sem salada no hambúrguer",
+        "Sem molho no hambúrguer"
+      ]
+    },
+    {
+      "id": "combo-smash-dupla",
+      "name": "Combo Galera Smash",
+      "category": "Combos",
+      "description": "2 Burgers Hooligan Smash Duplo + 1 Porção Grande de Batata Frita + 2 Refrigerantes Lata 350ml. Perfeito para compartilhar!",
+      "price": 72.90,
+      "image": "https://images.unsplash.com/photo-1582196016295-f8c8bd4b3e99?w=800&auto=format&fit=crop&q=80",
+      "badge": "NOVO",
+      "available": true,
+      "additions": [
+        { "id": "add-combo-galera-bacon", "name": "Bacon extra nos dois burgers", "price": 8.00 },
+        { "id": "add-combo-molho-especial", "name": "Potinho de molho extra", "price": 3.00 }
+      ],
+      "removals": [
+        "Sem cebola caramelizada",
+        "Sem maionese defumada"
+      ]
+    },
+    {
+      "id": "batata-cheddar-bacon",
+      "name": "Batata Rústica Cheddar & Bacon",
+      "category": "Porções",
+      "description": "Porção generosa de batatas rústicas com casca, fritas na hora, cobertas com blend cremoso de queijo cheddar e farta chuva de farofa de bacon crocante.",
+      "price": 26.90,
+      "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=800&auto=format&fit=crop&q=80",
+      "badge": "MAIS PEDIDO",
+      "available": true,
+      "additions": [
+        { "id": "add-batata-cheddar", "name": "Dobro de Cheddar", "price": 4.50 },
+        { "id": "add-batata-bacon", "name": "Dobro de Bacon", "price": 4.50 }
+      ],
+      "removals": [
+        "Sem bacon (vegetariana)"
+      ]
+    },
+    {
+      "id": "onion-rings",
+      "name": "Onion Rings Crocantes",
+      "category": "Porções",
+      "description": "12 anéis de cebola selecionados, empanados em massa temperada super crocante. Acompanha nosso molho especial da casa.",
+      "price": 22.90,
+      "image": "https://images.unsplash.com/photo-1639024471285-0afc38317470?w=800&auto=format&fit=crop&q=80",
+      "badge": "",
+      "available": true,
+      "additions": [
+        { "id": "add-rings-barbecue", "name": "Molho barbecue extra", "price": 2.50 },
+        { "id": "add-rings-maionese", "name": "Maionese defumada", "price": 2.50 }
+      ],
+      "removals": []
+    },
+    {
+      "id": "coca-cola-lata",
+      "name": "Coca-Cola Original Lata 350ml",
+      "category": "Bebidas",
+      "description": "Refrigerante Coca-Cola em lata 350ml bem gelada.",
+      "price": 6.50,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&auto=format&fit=crop&q=80",
+      "badge": "",
+      "available": true,
+      "additions": [],
+      "removals": []
+    },
+    {
+      "id": "coca-zero-lata",
+      "name": "Coca-Cola Sem Açúcar Lata 350ml",
+      "category": "Bebidas",
+      "description": "Refrigerante Coca-Cola Sem Açúcar em lata 350ml trincando de gelada.",
+      "price": 6.50,
+      "image": "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=800&auto=format&fit=crop&q=80",
+      "badge": "",
+      "available": true,
+      "additions": [],
+      "removals": []
+    },
+    {
+      "id": "guarana-antarctica",
+      "name": "Guaraná Antarctica Lata 350ml",
+      "category": "Bebidas",
+      "description": "Refrigerante Guaraná Antarctica clássico em lata 350ml gelada.",
+      "price": 6.00,
+      "image": "https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=800&auto=format&fit=crop&q=80",
+      "badge": "",
+      "available": true,
+      "additions": [],
+      "removals": []
+    },
+    {
+      "id": "suco-laranja",
+      "name": "Suco Natural de Laranja 500ml",
+      "category": "Bebidas",
+      "description": "Suco 100% fruta natural espremido na hora, sem conservantes, garrafinha de 500ml.",
+      "price": 9.90,
+      "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=800&auto=format&fit=crop&q=80",
+      "badge": "",
+      "available": true,
+      "additions": [],
+      "removals": [
+        "Sem açúcar (natural)",
+        "Sem gelo"
+      ]
+    },
+    {
+      "id": "cerveja-heineken",
+      "name": "Heineken Long Neck 330ml",
+      "category": "Bebidas",
+      "description": "Cerveja Heineken Premium Quality puro malte, garrafa long neck 330ml geladíssima. Proibida a venda para menores de 18 anos.",
+      "price": 11.90,
+      "image": "https://images.unsplash.com/photo-1608270119859-f9c3ff4b5847?w=800&auto=format&fit=crop&q=80",
+      "badge": "",
+      "available": true,
+      "additions": [],
+      "removals": []
+    },
+    {
+      "id": "milkshake-nutella",
+      "name": "Milkshake Hooligan Nutella 500ml",
+      "category": "Sobremesas",
+      "description": "Cremoso sorvete artesanal de baunilha batido com muita Nutella original, cobertura generosa de chantilly e calda especial de cacau.",
+      "price": 22.90,
+      "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=800&auto=format&fit=crop&q=80",
+      "badge": "MAIS PEDIDO",
+      "available": true,
+      "additions": [
+        { "id": "add-shake-nutella-extra", "name": "Dose extra de Nutella", "price": 4.00 },
+        { "id": "add-shake-farofa-leite-ninho", "name": "Farofa crocante de Leite Ninho", "price": 3.00 }
+      ],
+      "removals": [
+        "Sem chantilly"
+      ]
+    },
+    {
+      "id": "brownie-sorvete",
+      "name": "Brownie Vulcão com Sorvete",
+      "category": "Sobremesas",
+      "description": "Pedaço generoso de brownie de chocolate meio amargo quentinho com castanhas, acompanhado de uma bola de sorvete de creme e calda de chocolate.",
+      "price": 19.90,
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&auto=format&fit=crop&q=80",
+      "badge": "",
+      "available": true,
+      "additions": [
+        { "id": "add-brownie-bola-extra", "name": "Bola extra de sorvete", "price": 5.00 },
+        { "id": "add-brownie-castanhas", "name": "Castanhas caramelizadas extras", "price": 3.00 }
+      ],
+      "removals": [
+        "Sem castanhas no topo"
+      ]
+    }
+  ]
+}
